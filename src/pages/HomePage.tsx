@@ -175,7 +175,7 @@ export function HomePage() {
         <Box component="section" id="work" sx={{ py: { xs: 8, md: 11 } }}>
           <SectionHeading
             eyebrow="Work"
-            title="Bridging business needs and production-ready software."
+            title="Bridging business needs and production-ready software"
             copy="Qisas works across both client-facing projects and internal product developments, turning complex requirements into clear, reliable systems."
           />
           <Grid container spacing={2.5}>
@@ -415,7 +415,7 @@ export function HomePage() {
                   Contact
                 </Typography>
                 <Typography variant="h2" sx={{ fontSize: { xs: 34, md: 52 } }}>
-                  Let us build something modern and useful.
+                  Let's build something modern and useful
                 </Typography>
                 <Typography
                   sx={{
