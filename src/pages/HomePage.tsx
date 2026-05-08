@@ -103,10 +103,10 @@ export function HomePage() {
                     variant="contained"
                     size="large"
                     component={RouterLink}
-                    to="/#projects"
+                    to="/#portfolio"
                     endIcon={<ArrowForwardIcon />}
                   >
-                    View projects
+                    View Portfolio
                   </Button>
                   <Button
                     variant="outlined"
