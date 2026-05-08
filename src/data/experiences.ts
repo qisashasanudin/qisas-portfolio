@@ -251,7 +251,7 @@ export const experiences: Experience[] = [
     },
   },
   {
-    slug: "robot-biru",
+    slug: "edumatic",
     company: "Edumatic International",
     role: "Mobile Application Developer Intern",
     period: "Jan 2021 - Feb 2021",

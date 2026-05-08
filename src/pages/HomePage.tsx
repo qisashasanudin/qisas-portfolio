@@ -24,6 +24,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { Link as RouterLink } from "react-router-dom";
 import { experiences } from "../data/experiences";
 import { repos } from "../data/repos";
@@ -31,19 +32,27 @@ import { contacts, getHomeStats, skillGroups } from "../data/home";
 import { asset } from "../utils/asset";
 import { SectionHeading } from "../components/SectionHeading";
 import { ExperienceCard } from "../components/ExperienceCard";
+import { ScreenshotCarousel } from "../components/ScreenshotCarousel";
 
 export function HomePage() {
   const stats = getHomeStats();
 
   return (
     <Box component="main" sx={{ position: "relative", zIndex: 1 }}>
-      <Box component="section" sx={{ pt: { xs: 8, md: 12 }, pb: { xs: 8, md: 12 } }}>
+      <Box
+        component="section"
+        sx={{ pt: { xs: 8, md: 12 }, pb: { xs: 8, md: 12 } }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={{ xs: 5, md: 7 }} alignItems="center">
             <Grid size={{ xs: 12, md: 7 }}>
               <Stack spacing={3}>
                 <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
-                  <Chip icon={<LocationOnIcon />} label="Jakarta, Indonesia" variant="outlined" />
+                  <Chip
+                    icon={<LocationOnIcon />}
+                    label="Jakarta, Indonesia"
+                    variant="outlined"
+                  />
                 </Stack>
                 <Stack spacing={1.5} sx={{ maxWidth: 920 }}>
                   <Typography
@@ -69,11 +78,27 @@ export function HomePage() {
                     Technology consultant and full-stack developer
                   </Typography>
                 </Stack>
-                <Typography color="text.secondary" sx={{ maxWidth: 760, fontSize: { xs: 18, md: 21 }, lineHeight: 1.8 }}>
-                  A bilingual Computer Engineering graduate, senior technology consultant, and software engineer focused on React frontends, robust back-office platforms, and practical delivery for teams that need software that holds up in production.
+                <Typography
+                  color="text.secondary"
+                  sx={{
+                    maxWidth: 760,
+                    fontSize: { xs: 18, md: 21 },
+                    lineHeight: 1.8,
+                  }}
+                >
+                  A bilingual Computer Engineering graduate, senior technology
+                  consultant, and software engineer focused on React frontends,
+                  robust back-office platforms, and practical delivery for teams
+                  that need software that holds up in production.
                 </Typography>
                 <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
-                  <Button variant="contained" size="large" component={RouterLink} to="/#projects" endIcon={<ArrowForwardIcon />}>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    component={RouterLink}
+                    to="/#projects"
+                    endIcon={<ArrowForwardIcon />}
+                  >
                     View projects
                   </Button>
                   <Button
@@ -95,7 +120,8 @@ export function HomePage() {
                   border: "1px solid rgba(13, 99, 255, 0.18)",
                   bgcolor: "rgba(9, 15, 32, 0.74)",
                   borderRadius: 2,
-                  background: "linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(10, 18, 38, 0.68))",
+                  background:
+                    "linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(10, 18, 38, 0.68))",
                   boxShadow: "0 28px 100px rgba(0, 0, 0, 0.35)",
                   backdropFilter: "blur(18px)",
                 }}
@@ -122,10 +148,16 @@ export function HomePage() {
                             bgcolor: "rgba(255, 255, 255, 0.045)",
                           }}
                         >
-                          <Typography variant="h4" sx={{ fontWeight: 850, color: "#ffffff" }}>
+                          <Typography
+                            variant="h4"
+                            sx={{ fontWeight: 850, color: "#ffffff" }}
+                          >
                             {stat.value}
                           </Typography>
-                          <Typography color="text.secondary" sx={{ fontSize: 14 }}>
+                          <Typography
+                            color="text.secondary"
+                            sx={{ fontSize: 14 }}
+                          >
                             {stat.label}
                           </Typography>
                         </Box>
@@ -141,7 +173,11 @@ export function HomePage() {
 
       <Container maxWidth="lg">
         <Box component="section" id="work" sx={{ py: { xs: 8, md: 11 } }}>
-          <SectionHeading eyebrow="Work" title="Bridging business needs and production-ready software." copy="Qisas works across both client-facing projects and internal product developments, turning complex requirements into clear, reliable systems." />
+          <SectionHeading
+            eyebrow="Work"
+            title="Bridging business needs and production-ready software."
+            copy="Qisas works across both client-facing projects and internal product developments, turning complex requirements into clear, reliable systems."
+          />
           <Grid container spacing={2.5}>
             {experiences.map((experience) => (
               <Grid key={experience.slug} size={{ xs: 12, md: 6 }}>
@@ -153,8 +189,79 @@ export function HomePage() {
 
         <Divider />
 
+        <Box component="section" id="portfolio" sx={{ py: { xs: 8, md: 11 } }}>
+          <SectionHeading
+            eyebrow="Portfolio"
+            title="Selected case studies and product work"
+            copy="Screens and flows from internship and professional projects, embedded directly so you can get a feel for the actual products."
+          />
+
+          <Grid container spacing={3.5}>
+            {experiences
+              .filter(
+                (exp) =>
+                  (exp.detail.screenshots?.length ?? 0) > 0 ||
+                  (exp.detail.links?.length ?? 0) > 0,
+              )
+              .map((exp) => (
+                <Grid key={exp.slug} size={{ xs: 12 }}>
+                  <Card variant="outlined">
+                    <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
+                      <Stack spacing={2.5}>
+                        <Stack
+                          direction="row"
+                          spacing={2}
+                          alignItems="center"
+                          justifyContent="space-between"
+                        >
+                          <Stack spacing={0.5}>
+                            <Typography
+                              variant="overline"
+                              color="primary"
+                              sx={{ fontWeight: 800, letterSpacing: 1.4 }}
+                            >
+                              {exp.company}
+                            </Typography>
+                            <Typography variant="h3" sx={{ fontSize: 22 }}>
+                              {exp.detail.title}
+                            </Typography>
+                            <Typography
+                              color="text.secondary"
+                              sx={{ fontSize: 14 }}
+                            >
+                              {exp.role} · {exp.period}
+                            </Typography>
+                          </Stack>
+                          <Button
+                            component={RouterLink}
+                            to={`/experience/${exp.slug}`}
+                            variant="outlined"
+                            size="small"
+                            startIcon={<LaunchIcon />}
+                            sx={{ flexShrink: 0 }}
+                          >
+                            View details
+                          </Button>
+                        </Stack>
+
+                        <ScreenshotCarousel
+                          screenshots={exp.detail.screenshots}
+                          links={exp.detail.links}
+                        />
+                      </Stack>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+          </Grid>
+        </Box>
+
         <Box component="section" id="projects" sx={{ py: { xs: 8, md: 11 } }}>
-          <SectionHeading eyebrow="Projects" title="Selected public GitHub work" copy="A concise set of public repositories showing Qisas's expertise across frontend, backend, mobile, and systems fundamentals." />
+          <SectionHeading
+            eyebrow="Projects"
+            title="Selected public GitHub work"
+            copy="A concise set of public repositories showing Qisas's expertise across frontend, backend, mobile, and systems fundamentals."
+          />
           <Card variant="outlined">
             <CardContent sx={{ p: 0 }}>
               <List disablePadding>
@@ -180,7 +287,11 @@ export function HomePage() {
                           <Typography variant="h3" sx={{ fontSize: 20 }}>
                             {repo.name}
                           </Typography>
-                          <Stack direction="row" spacing={1} sx={{ flexShrink: 0 }}>
+                          <Stack
+                            direction="row"
+                            spacing={1}
+                            sx={{ flexShrink: 0 }}
+                          >
                             <Button
                               href={repo.url}
                               target="_blank"
@@ -208,10 +319,18 @@ export function HomePage() {
                       }
                       secondary={
                         <Stack spacing={1.25} sx={{ mt: 1 }}>
-                          <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                          <Typography
+                            color="text.secondary"
+                            sx={{ lineHeight: 1.7 }}
+                          >
                             {repo.description}
                           </Typography>
-                          <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+                          <Stack
+                            direction="row"
+                            spacing={1}
+                            useFlexGap
+                            flexWrap="wrap"
+                          >
                             {repo.stack.map((item) => (
                               <Chip key={item} size="small" label={item} />
                             ))}
@@ -240,13 +359,27 @@ export function HomePage() {
               <Grid size={{ xs: 12, sm: 6 }} key={group.title}>
                 <Card variant="outlined" sx={{ height: "100%" }}>
                   <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
-                    <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2.5 }}>
-                      {group.title === "Programming" ? <CodeIcon color="primary" /> : <StarBorderIcon color="primary" />}
+                    <Stack
+                      direction="row"
+                      spacing={1.5}
+                      alignItems="center"
+                      sx={{ mb: 2.5 }}
+                    >
+                      {group.title === "Programming" ? (
+                        <CodeIcon color="primary" />
+                      ) : (
+                        <StarBorderIcon color="primary" />
+                      )}
                       <Typography variant="h3" sx={{ fontSize: 22 }}>
                         {group.title}
                       </Typography>
                     </Stack>
-                    <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+                    <Stack
+                      direction="row"
+                      spacing={1}
+                      useFlexGap
+                      flexWrap="wrap"
+                    >
                       {group.items.map((item) => (
                         <Chip key={item} label={item} variant="outlined" />
                       ))}
@@ -273,17 +406,31 @@ export function HomePage() {
           <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
               <Stack spacing={2.5}>
-                <Typography variant="overline" sx={{ color: "#7eb0ff", fontWeight: 800, letterSpacing: 1.4 }}>
+                <Typography
+                  variant="overline"
+                  sx={{ color: "#7eb0ff", fontWeight: 800, letterSpacing: 1.4 }}
+                >
                   Contact
                 </Typography>
                 <Typography variant="h2" sx={{ fontSize: { xs: 34, md: 52 } }}>
                   Let us build something modern and useful.
                 </Typography>
-                <Typography sx={{ color: "rgba(255,255,255,0.72)", fontSize: 18, lineHeight: 1.8 }}>
-                  Open to software development, technology consultation, and full-stack work.
+                <Typography
+                  sx={{
+                    color: "rgba(255,255,255,0.72)",
+                    fontSize: 18,
+                    lineHeight: 1.8,
+                  }}
+                >
+                  Open to software development, technology consultation, and
+                  full-stack work.
                 </Typography>
                 <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
-                  <Button variant="contained" href="mailto:qisas.hasanudin@gmail.com" startIcon={<MailOutlineIcon />}>
+                  <Button
+                    variant="contained"
+                    href="mailto:qisas.hasanudin@gmail.com"
+                    startIcon={<MailOutlineIcon />}
+                  >
                     Email Qisas
                   </Button>
                   <Button
@@ -295,7 +442,10 @@ export function HomePage() {
                     sx={{
                       color: "#ffffff",
                       borderColor: "rgba(255,255,255,0.35)",
-                      "&:hover": { borderColor: "#ffffff", bgcolor: "rgba(255,255,255,0.06)" },
+                      "&:hover": {
+                        borderColor: "#ffffff",
+                        bgcolor: "rgba(255,255,255,0.06)",
+                      },
                     }}
                   >
                     LinkedIn
@@ -310,7 +460,9 @@ export function HomePage() {
                     <MuiLink
                       href={contact.href}
                       underline="none"
-                      target={contact.href.startsWith("http") ? "_blank" : undefined}
+                      target={
+                        contact.href.startsWith("http") ? "_blank" : undefined
+                      }
                       rel="noreferrer"
                     >
                       <Box
@@ -321,14 +473,27 @@ export function HomePage() {
                           borderRadius: 2,
                           color: "#ffffff",
                           bgcolor: "rgba(255,255,255,0.04)",
-                          transition: "border-color 180ms ease, background 180ms ease",
-                          "&:hover": { borderColor: "#7eb0ff", bgcolor: "rgba(13, 99, 255, 0.12)" },
+                          transition:
+                            "border-color 180ms ease, background 180ms ease",
+                          "&:hover": {
+                            borderColor: "#7eb0ff",
+                            bgcolor: "rgba(13, 99, 255, 0.12)",
+                          },
                         }}
                       >
                         <Stack spacing={1.5}>
                           <Box sx={{ color: "#7eb0ff" }}>{contact.icon}</Box>
-                          <Typography sx={{ fontWeight: 800 }}>{contact.label}</Typography>
-                          <Typography sx={{ color: "rgba(255,255,255,0.7)", wordBreak: "break-word" }}>{contact.value}</Typography>
+                          <Typography sx={{ fontWeight: 800 }}>
+                            {contact.label}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              color: "rgba(255,255,255,0.7)",
+                              wordBreak: "break-word",
+                            }}
+                          >
+                            {contact.value}
+                          </Typography>
                         </Stack>
                       </Box>
                     </MuiLink>
@@ -342,4 +507,3 @@ export function HomePage() {
     </Box>
   );
 }
-
