@@ -74,7 +74,7 @@ export function ExperienceDetailPage() {
                 width: { xs: 72, sm: 84, md: 92 },
                 height: { xs: 72, sm: 84, md: 92 },
                 borderRadius: 2.5,
-                border: "1px solid rgba(148, 163, 184, 0.18)",
+                border: "1px solid rgba(212, 175, 55, 0.18)",
                 bgcolor: "rgba(255,255,255,0.04)",
                 overflow: "hidden",
                 display: "flex",
@@ -160,7 +160,7 @@ export function ExperienceDetailPage() {
                     sx={{
                       p: { xs: 1.5, md: 2 },
                       borderRadius: 2,
-                      border: "1px solid rgba(148, 163, 184, 0.2)",
+                      border: "1px solid rgba(212, 175, 55, 0.2)",
                       bgcolor: "rgba(255,255,255,0.03)",
                       display: "flex",
                       justifyContent: "center",
@@ -171,7 +171,7 @@ export function ExperienceDetailPage() {
                         width: { xs: 220, sm: 260, md: 300 },
                         borderRadius: 2.5,
                         overflow: "hidden",
-                        border: "1px solid rgba(148, 163, 184, 0.3)",
+                        border: "1px solid rgba(212, 175, 55, 0.3)",
                         bgcolor: "rgba(10, 15, 30, 0.92)",
                       }}
                     >
@@ -194,7 +194,7 @@ export function ExperienceDetailPage() {
                     sx={{
                       width: "100%",
                       borderRadius: 2,
-                      border: "1px solid rgba(148, 163, 184, 0.2)",
+                      border: "1px solid rgba(212, 175, 55, 0.2)",
                       bgcolor: "rgba(255,255,255,0.04)",
                     }}
                   />
@@ -254,7 +254,7 @@ export function ExperienceDetailPage() {
                             sx={{
                               borderRadius: 2,
                               overflow: "hidden",
-                              border: "1px solid rgba(148, 163, 184, 0.18)",
+                              border: "1px solid rgba(212, 175, 55, 0.18)",
                               bgcolor: "rgba(255,255,255,0.02)",
                               minHeight: { xs: 260, md: 320 },
                             }}
@@ -346,7 +346,7 @@ export function ExperienceDetailPage() {
                           sx={{
                             width: "100%",
                             borderRadius: 2,
-                            border: "1px solid rgba(148, 163, 184, 0.18)",
+                            border: "1px solid rgba(212, 175, 55, 0.18)",
                           }}
                         />
                         <Typography variant="h3" sx={{ fontSize: 20, mt: 2 }}>

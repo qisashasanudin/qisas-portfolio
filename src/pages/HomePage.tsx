@@ -117,11 +117,11 @@ export function HomePage() {
               <Box
                 sx={{
                   p: { xs: 2, md: 2.5 },
-                  border: "1px solid rgba(13, 99, 255, 0.18)",
-                  bgcolor: "rgba(9, 15, 32, 0.74)",
+                  border: "1px solid rgba(212, 175, 55, 0.18)",
+                  bgcolor: "rgba(8, 8, 8, 0.78)",
                   borderRadius: 2,
                   background:
-                    "linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(10, 18, 38, 0.68))",
+                    "linear-gradient(145deg, rgba(10, 10, 10, 0.92), rgba(22, 16, 6, 0.65))",
                   boxShadow: "0 28px 100px rgba(0, 0, 0, 0.35)",
                   backdropFilter: "blur(18px)",
                 }}
@@ -133,7 +133,7 @@ export function HomePage() {
                     sx={{
                       width: { xs: 184, sm: 220, md: 260 },
                       height: { xs: 184, sm: 220, md: 260 },
-                      border: "8px solid rgba(91, 140, 255, 0.16)",
+                      border: "8px solid rgba(212, 175, 55, 0.24)",
                     }}
                   />
                   <Grid container spacing={1.5} sx={{ width: "100%" }}>
@@ -142,7 +142,7 @@ export function HomePage() {
                         <Box
                           sx={{
                             p: 2,
-                            border: "1px solid rgba(148, 163, 184, 0.16)",
+                            border: "1px solid rgba(212, 175, 55, 0.16)",
                             borderRadius: 2,
                             minHeight: 108,
                             bgcolor: "rgba(255, 255, 255, 0.045)",
@@ -334,7 +334,7 @@ export function HomePage() {
                             flexWrap="wrap"
                           >
                             {repo.stack.map((item) => (
-                              <Chip key={item} size="small" label={item} />
+                              <Chip key={item} label={item} variant="outlined" />
                             ))}
                           </Stack>
                         </Stack>
@@ -400,7 +400,7 @@ export function HomePage() {
         sx={{
           py: { xs: 8, md: 10 },
           bgcolor: "transparent",
-          borderTop: "1px solid rgba(148, 163, 184, 0.12)",
+          borderTop: "1px solid rgba(212, 175, 55, 0.18)",
           color: "#ffffff",
         }}
       >
@@ -410,7 +410,7 @@ export function HomePage() {
               <Stack spacing={2.5}>
                 <Typography
                   variant="overline"
-                  sx={{ color: "#7eb0ff", fontWeight: 800, letterSpacing: 1.4 }}
+                  sx={{ color: "#d4af37", fontWeight: 800, letterSpacing: 1.4 }}
                 >
                   Contact
                 </Typography>
@@ -478,13 +478,13 @@ export function HomePage() {
                           transition:
                             "border-color 180ms ease, background 180ms ease",
                           "&:hover": {
-                            borderColor: "#7eb0ff",
-                            bgcolor: "rgba(13, 99, 255, 0.12)",
+                            borderColor: "rgba(212, 175, 55, 0.85)",
+                            bgcolor: "rgba(212, 175, 55, 0.12)",
                           },
                         }}
                       >
                         <Stack spacing={1.5}>
-                          <Box sx={{ color: "#7eb0ff" }}>{contact.icon}</Box>
+                          <Box sx={{ color: "#d4af37" }}>{contact.icon}</Box>
                           <Typography sx={{ fontWeight: 800 }}>
                             {contact.label}
                           </Typography>

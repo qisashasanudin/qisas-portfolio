@@ -55,13 +55,18 @@ export function ScreenshotCarousel({
                   maxWidth: 380,
                   scrollSnapAlign: "start",
                   borderRadius: 2,
-                  border: "1px solid rgba(148, 163, 184, 0.28)",
-                  bgcolor: "rgba(15,23,42,0.9)",
+                  border: "1px solid rgba(212, 175, 55, 0.28)",
+                  bgcolor: "rgba(8, 8, 8, 0.88)",
                   overflow: "hidden",
                   cursor: "pointer",
                   outline: "none",
+                  transition: "box-shadow 180ms ease, border-color 180ms ease",
+                  "&:hover": {
+                    borderColor: "rgba(212, 175, 55, 0.45)",
+                    boxShadow: "0 28px 80px rgba(212, 175, 55, 0.16)",
+                  },
                   "&:focus-visible": {
-                    boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.45)",
+                    boxShadow: "0 0 0 3px rgba(212, 175, 55, 0.35)",
                   },
                 }}
               >
@@ -107,9 +112,14 @@ export function ScreenshotCarousel({
                   maxWidth: 420,
                   scrollSnapAlign: "start",
                   borderRadius: 2,
-                  border: "1px solid rgba(148, 163, 184, 0.28)",
-                  bgcolor: "rgba(15,23,42,0.9)",
+                  border: "1px solid rgba(212, 175, 55, 0.28)",
+                  bgcolor: "rgba(8, 8, 8, 0.88)",
                   overflow: "hidden",
+                  transition: "box-shadow 180ms ease, border-color 180ms ease",
+                  "&:hover": {
+                    borderColor: "rgba(212, 175, 55, 0.45)",
+                    boxShadow: "0 28px 80px rgba(212, 175, 55, 0.16)",
+                  },
                 }}
               >
                 <Box

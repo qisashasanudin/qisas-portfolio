@@ -23,19 +23,19 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#5b8cff",
-      dark: "#2862e8",
+      main: "#d4af37",
+      dark: "#b0891c",
     },
     secondary: {
-      main: "#60e6ff",
+      main: "#f4ce6a",
     },
     background: {
-      default: "#050816",
-      paper: "rgba(12, 18, 36, 0.82)",
+      default: "#020202",
+      paper: "rgba(10, 10, 10, 0.88)",
     },
     text: {
       primary: "#f8fbff",
-      secondary: "#aebbd2",
+      secondary: "#d4c69b",
     },
   },
   typography: {
@@ -76,9 +76,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 8,
-          borderColor: "rgba(148, 163, 184, 0.18)",
+          borderColor: "rgba(212, 175, 55, 0.18)",
           background:
-            "linear-gradient(145deg, rgba(17, 25, 46, 0.88), rgba(8, 13, 29, 0.78))",
+            "linear-gradient(145deg, rgba(4, 4, 4, 0.94), rgba(18, 14, 6, 0.76))",
           boxShadow: "0 24px 90px rgba(0, 0, 0, 0.28)",
           backdropFilter: "blur(18px)",
         },
@@ -117,7 +117,7 @@ function App() {
             zIndex: 0,
             pointerEvents: "none",
             background:
-              "radial-gradient(circle at 18% 12%, rgba(37, 99, 235, 0.46) 0, rgba(37, 99, 235, 0) 30%), radial-gradient(circle at 82% 18%, rgba(34, 211, 238, 0.22) 0, rgba(34, 211, 238, 0) 28%), radial-gradient(circle at 52% 76%, rgba(79, 70, 229, 0.18) 0, rgba(79, 70, 229, 0) 34%), linear-gradient(180deg, #050816 0%, #081a38 48%, #050816 100%)",
+              "radial-gradient(circle at 14% 14%, rgba(212, 175, 55, 0.14) 0, rgba(212, 175, 55, 0) 24%), radial-gradient(circle at 82% 18%, rgba(244, 206, 106, 0.10) 0, rgba(244, 206, 106, 0) 20%), linear-gradient(180deg, #050504 0%, #070603 45%, #020202 100%)",
           }}
         />
         <AppBar
@@ -125,10 +125,10 @@ function App() {
           elevation={0}
           sx={{
             zIndex: 10,
-            bgcolor: "rgba(5, 8, 22, 0.62)",
+            bgcolor: "rgba(5, 5, 5, 0.88)",
             color: "text.primary",
             backdropFilter: "blur(20px)",
-            borderBottom: "1px solid rgba(148, 163, 184, 0.12)",
+            borderBottom: "1px solid rgba(212, 175, 55, 0.18)",
           }}
         >
           <Container maxWidth="lg">

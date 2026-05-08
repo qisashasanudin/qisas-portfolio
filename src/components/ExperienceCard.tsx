@@ -25,8 +25,8 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
         transition: "transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease",
         "&:hover": {
           transform: "translateY(-4px)",
-          borderColor: "rgba(96, 230, 255, 0.46)",
-          boxShadow: "0 24px 86px rgba(37, 99, 235, 0.22)",
+          borderColor: "rgba(212, 175, 55, 0.46)",
+          boxShadow: "0 24px 86px rgba(212, 175, 55, 0.22)",
         },
       }}
     >
@@ -39,7 +39,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
                   width: 56,
                   height: 56,
                   borderRadius: 2,
-                  border: "1px solid rgba(148, 163, 184, 0.18)",
+                  border: "1px solid rgba(212, 175, 55, 0.18)",
                   bgcolor: "rgba(255,255,255,0.04)",
                   display: "grid",
                   placeItems: "center",
