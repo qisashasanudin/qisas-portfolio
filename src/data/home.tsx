@@ -18,7 +18,17 @@ export const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const programmingLanguages = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Go", "Dart"];
+export const programmingLanguages = [
+  "C",
+  "C++",
+  "C#",
+  "Python",
+  "Java",
+  "JavaScript",
+  "TypeScript",
+  "Go",
+  "Dart",
+];
 
 export function calculateCompletedYears(startDate: string) {
   const start = new Date(startDate);
@@ -26,7 +36,8 @@ export function calculateCompletedYears(startDate: string) {
   let years = today.getFullYear() - start.getFullYear();
   const hasNotReachedAnniversary =
     today.getMonth() < start.getMonth() ||
-    (today.getMonth() === start.getMonth() && today.getDate() < start.getDate());
+    (today.getMonth() === start.getMonth() &&
+      today.getDate() < start.getDate());
 
   if (hasNotReachedAnniversary) {
     years -= 1;
@@ -38,15 +49,45 @@ export function calculateCompletedYears(startDate: string) {
 export const skillGroups = [
   {
     title: "Programming",
-    items: ["JavaScript", "TypeScript", "React.js", "Node.js", "Go", "Python", "Java", "C", "C++", "C#", "Flutter"],
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "React.js",
+      "Node.js",
+      "Go",
+      "Python",
+      "Java",
+      "C",
+      "C++",
+      "C#",
+      "Flutter",
+    ],
   },
   {
     title: "Backend & Data",
-    items: ["Express.js", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Sequelize", "Firebase", "REST APIs"],
+    items: [
+      "Express.js",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Sequelize",
+      "Firebase",
+      "REST APIs",
+    ],
   },
   {
     title: "Product & Delivery",
-    items: ["Agile", "Scrum", "Jira", "Confluence", "Trello", "Notion", "Postman", "Leadership"],
+    items: [
+      "Agile",
+      "Scrum",
+      "Jira",
+      "Confluence",
+      "Trello",
+      "Notion",
+      "Postman",
+      "Leadership",
+    ],
   },
   {
     title: "Languages",
@@ -83,10 +124,15 @@ export const contacts: Contact[] = [
 
 export function getHomeStats() {
   return [
-    { label: "Years of experience", value: `${calculateCompletedYears("2021-01-01")}+` },
-    { label: "Programming languages", value: String(programmingLanguages.length) },
-    { label: "Languages", value: "3" },
+    {
+      label: "Years of experience",
+      value: `${calculateCompletedYears("2021-01-01")}+`,
+    },
+    {
+      label: "Programming languages",
+      value: String(programmingLanguages.length),
+    },
+    { label: "Education", value: "Universitas Indonesia" },
     { label: "Repositories", value: "17" },
   ];
 }
-

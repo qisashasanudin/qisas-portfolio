@@ -23,6 +23,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import SchoolIcon from "@mui/icons-material/School";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Link as RouterLink } from "react-router-dom";
@@ -51,6 +52,11 @@ export function HomePage() {
                   <Chip
                     icon={<LocationOnIcon />}
                     label="Jakarta, Indonesia"
+                    variant="outlined"
+                  />
+                  <Chip
+                    icon={<SchoolIcon />}
+                    label="Universitas Indonesia"
                     variant="outlined"
                   />
                 </Stack>
@@ -86,10 +92,11 @@ export function HomePage() {
                     lineHeight: 1.8,
                   }}
                 >
-                  A bilingual Computer Engineering graduate, senior technology
-                  consultant, and software engineer focused on React frontends,
-                  robust back-office platforms, and practical delivery for teams
-                  that need software that holds up in production.
+                  A bilingual Universitas Indonesia Computer Engineering
+                  graduate, senior technology consultant, and software engineer
+                  focused on React frontends, robust back-office platforms, and
+                  practical delivery for teams that need software that holds up
+                  in production.
                 </Typography>
                 <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
                   <Button
@@ -150,7 +157,15 @@ export function HomePage() {
                         >
                           <Typography
                             variant="h4"
-                            sx={{ fontWeight: 850, color: "#ffffff" }}
+                            sx={{
+                              fontWeight: 850,
+                              color: "#ffffff",
+                              fontSize:
+                                stat.label === "Education"
+                                  ? { xs: 20, sm: 24 }
+                                  : undefined,
+                              lineHeight: 1.1,
+                            }}
                           >
                             {stat.value}
                           </Typography>
@@ -398,13 +413,16 @@ export function HomePage() {
         </Box>
       </Container>
 
+      <Container maxWidth="lg">
+        <Divider sx={{ borderColor: "rgba(212, 175, 55, 0.18)" }} />
+      </Container>
+
       <Box
         component="section"
         id="contact"
         sx={{
           py: { xs: 8, md: 10 },
           bgcolor: "transparent",
-          borderTop: "1px solid rgba(212, 175, 55, 0.18)",
           color: "#ffffff",
         }}
       >
