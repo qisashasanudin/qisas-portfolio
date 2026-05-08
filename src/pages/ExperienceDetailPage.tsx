@@ -28,7 +28,10 @@ export function ExperienceDetailPage() {
   const { slug } = useParams();
   const experience = experiences.find((item) => item.slug === slug);
   const [imageFailed, setImageFailed] = useState(false);
-  const fallback = useMemo(() => initials(experience?.company ?? ""), [experience?.company]);
+  const fallback = useMemo(
+    () => initials(experience?.company ?? ""),
+    [experience?.company],
+  );
 
   if (!experience) {
     return (
@@ -88,10 +91,17 @@ export function ExperienceDetailPage() {
                   src={experience.logoSrc}
                   alt={`${experience.company} logo`}
                   onError={() => setImageFailed(true)}
-                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 1.25 }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    p: 1.25,
+                  }}
                 />
               ) : (
-                <Typography sx={{ fontWeight: 900, letterSpacing: 1.2 }}>{fallback}</Typography>
+                <Typography sx={{ fontWeight: 900, letterSpacing: 1.2 }}>
+                  {fallback}
+                </Typography>
               )}
             </Box>
             <Typography

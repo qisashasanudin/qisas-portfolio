@@ -334,7 +334,11 @@ export function HomePage() {
                             flexWrap="wrap"
                           >
                             {repo.stack.map((item) => (
-                              <Chip key={item} label={item} variant="outlined" />
+                              <Chip
+                                key={item}
+                                label={item}
+                                variant="outlined"
+                              />
                             ))}
                           </Stack>
                         </Stack>

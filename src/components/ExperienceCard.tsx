@@ -1,4 +1,11 @@
-import { Box, Button, Card, CardContent, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Stack,
+  Typography,
+} from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Link as RouterLink } from "react-router-dom";
 import { useMemo, useState } from "react";
@@ -15,14 +22,18 @@ function initials(company: string) {
 
 export function ExperienceCard({ experience }: { experience: Experience }) {
   const [imageFailed, setImageFailed] = useState(false);
-  const fallback = useMemo(() => initials(experience.company), [experience.company]);
+  const fallback = useMemo(
+    () => initials(experience.company),
+    [experience.company],
+  );
 
   return (
     <Card
       variant="outlined"
       sx={{
         height: "100%",
-        transition: "transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease",
+        transition:
+          "transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease",
         "&:hover": {
           transform: "translateY(-4px)",
           borderColor: "rgba(212, 175, 55, 0.46)",
@@ -32,8 +43,18 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
     >
       <CardContent sx={{ p: { xs: 3, md: 3.5 }, height: "100%" }}>
         <Stack spacing={2.5} sx={{ height: "100%" }}>
-          <Stack direction="row" spacing={2} alignItems="flex-start" justifyContent="space-between">
-            <Stack direction="row" spacing={2} alignItems="center" sx={{ minWidth: 0 }}>
+          <Stack
+            direction="row"
+            spacing={2}
+            alignItems="flex-start"
+            justifyContent="space-between"
+          >
+            <Stack
+              direction="row"
+              spacing={2}
+              alignItems="center"
+              sx={{ minWidth: 0 }}
+            >
               <Box
                 sx={{
                   width: 56,
@@ -53,10 +74,21 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
                     src={experience.logoSrc}
                     alt={`${experience.company} logo`}
                     onError={() => setImageFailed(true)}
-                    sx={{ width: "100%", height: "100%", objectFit: "contain", p: 1 }}
+                    sx={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      p: 1,
+                    }}
                   />
                 ) : (
-                  <Typography sx={{ fontWeight: 900, letterSpacing: 1.4, color: "rgba(255,255,255,0.86)" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 900,
+                      letterSpacing: 1.4,
+                      color: "rgba(255,255,255,0.86)",
+                    }}
+                  >
                     {fallback}
                   </Typography>
                 )}
@@ -83,7 +115,12 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Button component={RouterLink} to={`/experience/${experience.slug}`} variant="outlined" startIcon={<LaunchIcon />}>
+          <Button
+            component={RouterLink}
+            to={`/experience/${experience.slug}`}
+            variant="outlined"
+            startIcon={<LaunchIcon />}
+          >
             View details
           </Button>
         </Stack>
@@ -91,4 +128,3 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
     </Card>
   );
 }
-
