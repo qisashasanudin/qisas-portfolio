@@ -27,33 +27,24 @@ import {
   Navigate,
   Route,
   Routes,
-  useLocation,
 } from "react-router-dom";
-import { useEffect, type ReactNode } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CodeIcon from "@mui/icons-material/Code";
 import DownloadIcon from "@mui/icons-material/Download";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
-import LaunchIcon from "@mui/icons-material/Launch";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import PhoneIcon from "@mui/icons-material/Phone";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { experiences } from "./data/experiences";
 import { asset } from "./utils/asset";
 import { ExperienceCard } from "./components/ExperienceCard";
 import { ExperienceDetailPage } from "./pages/ExperienceDetailPage";
 import { repos } from "./data/repos";
-
-type Contact = {
-  label: string;
-  value: string;
-  href: string;
-  icon: ReactNode;
-};
+import { contacts, getHomeStats, navItems, skillGroups } from "./data/home";
+import { SectionHeading } from "./components/SectionHeading";
+import { ScrollToHash } from "./components/ScrollToHash";
 
 const theme = createTheme({
   palette: {
@@ -131,179 +122,10 @@ const theme = createTheme({
   },
 });
 
-const navItems = [
-  { label: "Work", href: "#work" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
-];
-
-const programmingLanguages = [
-  "C",
-  "C++",
-  "C#",
-  "Python",
-  "Java",
-  "JavaScript",
-  "TypeScript",
-  "Go",
-  "Dart",
-];
-
-function calculateCompletedYears(startDate: string) {
-  const start = new Date(startDate);
-  const today = new Date();
-  let years = today.getFullYear() - start.getFullYear();
-  const hasNotReachedAnniversary =
-    today.getMonth() < start.getMonth() ||
-    (today.getMonth() === start.getMonth() &&
-      today.getDate() < start.getDate());
-
-  if (hasNotReachedAnniversary) {
-    years -= 1;
-  }
-
-  return Math.max(years, 0);
-}
-
-const skillGroups = [
-  {
-    title: "Programming",
-    items: [
-      "JavaScript",
-      "TypeScript",
-      "React.js",
-      "Node.js",
-      "Go",
-      "Python",
-      "Java",
-      "C",
-      "C++",
-      "C#",
-      "Flutter",
-    ],
-  },
-  {
-    title: "Backend & Data",
-    items: [
-      "Express.js",
-      "MySQL",
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "Sequelize",
-      "Firebase",
-      "REST APIs",
-    ],
-  },
-  {
-    title: "Product & Delivery",
-    items: [
-      "Agile",
-      "Scrum",
-      "Jira",
-      "Confluence",
-      "Trello",
-      "Notion",
-      "Postman",
-      "Leadership",
-    ],
-  },
-  {
-    title: "Languages",
-    items: ["English", "Indonesian", "Sundanese"],
-  },
-];
-
-const contacts: Contact[] = [
-  {
-    label: "Email",
-    value: "qisas.hasanudin@gmail.com",
-    href: "mailto:qisas.hasanudin@gmail.com",
-    icon: <MailOutlineIcon />,
-  },
-  {
-    label: "Phone",
-    value: "+62 878 1571 0719",
-    href: "tel:+6287815710719",
-    icon: <PhoneIcon />,
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/qisashasanudin",
-    href: "https://www.linkedin.com/in/qisashasanudin/",
-    icon: <LinkedInIcon />,
-  },
-  {
-    label: "GitHub",
-    value: "github.com/qisashasanudin",
-    href: "https://github.com/qisashasanudin",
-    icon: <GitHubIcon />,
-  },
-];
-
-function SectionHeading({
-  eyebrow,
-  title,
-  copy,
-}: {
-  eyebrow: string;
-  title: string;
-  copy: string;
-}) {
-  return (
-    <Stack spacing={1.5} sx={{ maxWidth: 760, mb: { xs: 4, md: 6 } }}>
-      <Typography
-        variant="overline"
-        color="primary"
-        sx={{ fontWeight: 800, letterSpacing: 1.4 }}
-      >
-        {eyebrow}
-      </Typography>
-      <Typography variant="h2" sx={{ fontSize: { xs: 32, md: 46 } }}>
-        {title}
-      </Typography>
-      <Typography
-        color="text.secondary"
-        sx={{ fontSize: { xs: 16, md: 18 }, lineHeight: 1.75 }}
-      >
-        {copy}
-      </Typography>
-    </Stack>
-  );
-}
-
-function ScrollToHash() {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (!location.hash) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
-    const target = document.querySelector(location.hash);
-    target?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [location.pathname, location.hash]);
-
-  return null;
-}
-
 // Experience detail pages are now handled by /experience/:slug.
 
 function App() {
-  const stats = [
-    {
-      label: "Years of experience",
-      value: `${calculateCompletedYears("2021-01-01")}+`,
-    },
-    {
-      label: "Programming languages",
-      value: String(programmingLanguages.length),
-    },
-    { label: "Languages", value: "3" },
-    { label: "Repositories", value: "17" },
-  ];
+  const stats = getHomeStats();
 
   return (
     <ThemeProvider theme={theme}>

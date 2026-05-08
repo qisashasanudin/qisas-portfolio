@@ -43,6 +43,11 @@ export type Experience = {
 
 const virusMediaScreenshots: ExperienceScreenshot[] = [
   {
+    src: asset("/virus-media/virus-media-12.png"),
+    title: "Login screen",
+    description: "Split-screen authentication page with Virus Media branding.",
+  },
+  {
     src: asset("/virus-media/virus-media-25.png"),
     title: "Campaign detail",
     description:
@@ -71,11 +76,6 @@ const virusMediaScreenshots: ExperienceScreenshot[] = [
     title: "Administrator list",
     description:
       "User administration with role, KOL creation totals, and account metadata.",
-  },
-  {
-    src: asset("/virus-media/virus-media-12.png"),
-    title: "Login screen",
-    description: "Split-screen authentication page with Virus Media branding.",
   },
 ];
 
@@ -227,7 +227,7 @@ export const experiences: Experience[] = [
       eyebrow: "Experience",
       title: "Virus Media",
       intro:
-        "Full-stack developer intern working with UI/UX teammates to deliver end-to-end dashboard features — from data and authentication flows to operational screens and reporting views.",
+        "Contributed as a full-stack developer intern working with UI/UX teammates to deliver end-to-end dashboard features, from data and authentication flows to operational screens and reporting views.",
       chips: ["React.js", "MERN Stack", "CoreUI", "Bootstrap", "Dashboard UI"],
       highlights: [
         {
@@ -257,13 +257,13 @@ export const experiences: Experience[] = [
     period: "Jan 2021 - Feb 2021",
     location: "Bandung, Indonesia",
     teaser:
-      "Led a mobile super-app internship team focused on ticketing and utility payment flows.",
+      "Led a mobile super-app internship team focused on ticket booking and utility payment flows.",
     logoSrc: asset("/logos/edumatic.png"),
     detail: {
       eyebrow: "Experience",
       title: "Edumatic International",
       intro:
-        "Mobile application developer intern and internship team lead, coordinating delivery of multiple Flutter app flows and ensuring consistent UX across booking, top-up, and utility payment journeys.",
+        "Positioned as a mobile application developer intern and as an internship team lead, coordinating delivery of multiple Flutter app flows within a super-app named 'Robot Biru' and ensuring consistent UX across booking, top-up, and utility payment journeys.",
       chips: ["Flutter", "Dart", "Mobile App", "Ticketing", "Top-up"],
       highlights: [
         {
@@ -272,7 +272,7 @@ export const experiences: Experience[] = [
         },
         {
           title: "Scope",
-          copy: "Train and flight ticketing flows, balance top-up, cellular/e-money recharge, and utility payments.",
+          copy: "Train and Airplane ticket booking flows, balance top-up, cellular/e-money recharge, and utility payments.",
         },
         {
           title: "Focus",

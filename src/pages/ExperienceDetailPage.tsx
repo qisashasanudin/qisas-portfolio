@@ -13,10 +13,22 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Link as RouterLink, useParams } from "react-router-dom";
 import { experiences } from "../data/experiences";
+import { useMemo, useState } from "react";
+
+function initials(company: string) {
+  return company
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join("");
+}
 
 export function ExperienceDetailPage() {
   const { slug } = useParams();
   const experience = experiences.find((item) => item.slug === slug);
+  const [imageFailed, setImageFailed] = useState(false);
+  const fallback = useMemo(() => initials(experience?.company ?? ""), [experience?.company]);
 
   if (!experience) {
     return (
@@ -57,6 +69,31 @@ export function ExperienceDetailPage() {
             >
               Back to work
             </Button>
+            <Box
+              sx={{
+                width: { xs: 72, sm: 84, md: 92 },
+                height: { xs: 72, sm: 84, md: 92 },
+                borderRadius: 2.5,
+                border: "1px solid rgba(148, 163, 184, 0.18)",
+                bgcolor: "rgba(255,255,255,0.04)",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {experience.logoSrc && !imageFailed ? (
+                <Box
+                  component="img"
+                  src={experience.logoSrc}
+                  alt={`${experience.company} logo`}
+                  onError={() => setImageFailed(true)}
+                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 1.25 }}
+                />
+              ) : (
+                <Typography sx={{ fontWeight: 900, letterSpacing: 1.2 }}>{fallback}</Typography>
+              )}
+            </Box>
             <Typography
               variant="overline"
               color="primary"
