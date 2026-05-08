@@ -215,13 +215,15 @@ export function HomePage() {
                           justifyContent="space-between"
                         >
                           <Stack spacing={0.5}>
-                            <Typography
-                              variant="overline"
-                              color="primary"
-                              sx={{ fontWeight: 800, letterSpacing: 1.4 }}
-                            >
-                              {exp.company}
-                            </Typography>
+                            {exp.detail.title !== exp.company ? (
+                              <Typography
+                                variant="overline"
+                                color="primary"
+                                sx={{ fontWeight: 800, letterSpacing: 1.4 }}
+                              >
+                                {exp.company}
+                              </Typography>
+                            ) : null}
                             <Typography variant="h3" sx={{ fontSize: 22 }}>
                               {exp.detail.title}
                             </Typography>
